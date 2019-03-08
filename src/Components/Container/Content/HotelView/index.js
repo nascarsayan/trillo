@@ -11,8 +11,10 @@ class HotelView extends Component {
 
 const StHotelView = styled.div.attrs(({theme: {colour:c}}) => ({c}))`
   background-color: ${p =>p.c.white};
-  background-color: orangered;
   flex: 1;
+
+  background-color: orangered;
+  min-height: 80rem;
 `
 
 export default HotelView

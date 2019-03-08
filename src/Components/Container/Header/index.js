@@ -1,25 +1,37 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import logo from '@img/logo.png'
-import { Form } from '@/Components/Widgets'
+import { SearchBox, UserNav, User, IconBox } from '@/Components/Widgets'
+import userPic from '@img/user.jpg'
 
 class Header extends Component {
   render() {
     return (
       <StHeader>
         <img src={logo} alt='trillo logo'></img>
-        <form action='#'>
-          <Form placeholder={'Search Hotels'} icon={'icon-magnifying-glass'}></Form>
-        </form>
+        <SearchBox placeholder={'Search hotels'} icon={'icon-magnifying-glass'}></SearchBox>
+        <UserNav>
+          <IconBox icon='icon-bookmark' count='7' />
+          <IconBox icon='icon-chat' count='13' />
+          <User image={userPic} name='Jonas' />
+        </UserNav>
       </StHeader>
     )
   }
 }
 
 const StHeader = styled.div.attrs(({theme: {colour:c}}) => ({c}))`
+  font-size:1.4rem;
   height: 7rem;
   background-color: ${p =>p.c.white};
   border-bottom: ${p =>p.c.grey.light[1]};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &>img {
+    height: 3.25rem;
+    margin-left: 2rem;
+  }
 `
 
 export default Header
