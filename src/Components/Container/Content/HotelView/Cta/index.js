@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { pulsate } from '@/Components/Widgets'
+import { screenWidth } from '@/Components/Identifiers'
 
 class Cta extends Component {
   render() {
@@ -18,6 +19,9 @@ class Cta extends Component {
 
 const StCta = styled.div.attrs(({theme: {colour:c}}) => ({c}))`
 padding: 3.5rem 0;
+@media only screen and (max-width: ${screenWidth[3]}) {
+  padding: 2.5rem 0;
+}
 text-align: center;
 &>h2 {
   color: ${p => p.c.grey.dark[2]};

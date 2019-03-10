@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import { Paragraph, FeatureList, Recommend } from '@/Components/Widgets'
-import { shadowLight } from '@/Components/Identifiers'
+import { shadowLight, screenWidth } from '@/Components/Identifiers'
 import f1 from '@img/user-3.jpg'
 import f2 from '@img/user-4.jpg'
 import f3 from '@img/user-5.jpg'
@@ -45,6 +45,14 @@ const StDescription = styled.div.attrs(({theme: {colour:c}}) => ({c}))`
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem;
+  @media only screen and (max-width: ${screenWidth[3]}) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
+  @media only screen and (max-width: ${screenWidth[5]}) {
+    margin-right: 0;
+    margin-bottom: 3rem;
+  }
 `
 
 export default Description

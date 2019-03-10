@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Sidebar from './Sidebar'
 import HotelView from './HotelView'
+import { screenWidth } from '@/Components/Identifiers'
 
 import hotel1 from '@img/hotel-1.jpg'
 import hotel2 from '@img/hotel-2.jpg'
@@ -30,6 +31,9 @@ class Content extends Component {
 
 const StContent = styled.div.attrs(({theme: {colour:c}}) => ({c}))`
   display: flex;
+  @media only screen and (max-width: ${screenWidth[3]}) {
+    flex-direction: column;
+  }
 `
 
 export default Content

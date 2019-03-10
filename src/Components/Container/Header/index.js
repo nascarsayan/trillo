@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import logo from '@img/logo.png'
 import { SearchBox, UserNav, User, IconBox } from '@/Components/Widgets'
-import { line } from '@/Components/Identifiers'
+import { line, screenWidth } from '@/Components/Identifiers'
 import userPic from '@img/user.jpg'
 
 class Header extends Component {
@@ -29,6 +29,11 @@ const StHeader = styled.div.attrs(({theme: {colour:c}}) => ({c}))`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  @media only screen and (max-width: ${screenWidth[6]}) {
+    height: 11rem;
+    align-content: space-around;
+  }
   &>img {
     height: 3.25rem;
     margin-left: 2rem;

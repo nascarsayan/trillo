@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled, { css, keyframes } from 'styled-components'
-import { line, shadowLight } from '@/Components/Identifiers'
+import { line, shadowLight, screenWidth } from '@/Components/Identifiers'
 import sprite from '@img/sprite.svg'
 import chevron from '@img/chevron-thin-right.svg'
 
@@ -75,6 +75,11 @@ const StSearchBox = styled.form.attrs(({theme: {colour:c}}) => ({c}))`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media only screen and (max-width: ${screenWidth[6]}) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: ${p => p.c.grey.light[1]};
+  }
 
   &>input {
     font-family: inherit;
@@ -319,6 +324,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 &>div {
+  display: flex;
   &>p {
 
   }
@@ -330,6 +336,9 @@ align-items: center;
     border: 3px solid #fff;
     &:not(:last-child) {
       margin-right: -1.5rem;
+      @media only screen and (max-width: ${screenWidth[1]}) and (min-width: 0) {
+        margin-right: -2rem;
+      }
     }
   }
 }
@@ -366,6 +375,10 @@ const StReview = styled.figure.attrs(({theme: {colour:c}}) => ({c}))`
   box-shadow: ${shadowLight};
   padding: 3rem;
   margin-bottom: 3.5rem;
+  @media only screen and (max-width: ${screenWidth[3]}) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
   overflow: hidden;
 
   &::before {

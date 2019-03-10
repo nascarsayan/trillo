@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Svg, ButtonInline } from '@/Components/Widgets'
-import { line } from '@/Components/Identifiers'
+import { line, screenWidth } from '@/Components/Identifiers'
 
 export class Overview extends Component {
   render() {
@@ -38,6 +38,10 @@ border-bottom: ${p => line(p)};
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+    @media only screen and (max-width: ${screenWidth[5]}) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
   &>.stars {
     margin-right: auto;
@@ -69,14 +73,23 @@ border-bottom: ${p => line(p)};
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media only screen and (max-width: ${screenWidth[5]}) {
+      padding: 0 1.5rem;
+    }
     &>.average {
       font-size: 2.25rem;
       font-weight: 300;
       margin-bottom: -3px;
+      @media only screen and (max-width: ${screenWidth[5]}) {
+        font-size: 1.8rem;
+      }
     }
     &>.count {
       font-size: .8rem;
       text-transform: uppercase;
+      @media only screen and (max-width: ${screenWidth[5]}) {
+        font-size: .5rem;
+      }
     }
   }
 `

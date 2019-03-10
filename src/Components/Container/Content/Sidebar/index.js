@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled, { css } from 'styled-components'
 import { Svg } from '@/Components/Widgets'
+import { screenWidth } from '@/Components/Identifiers'
 
 class Sidebar extends Component {
   render() {
@@ -35,21 +36,28 @@ export const StSidebar = styled.nav.attrs(({theme: {colour:c}}) => ({c}))`
     font-size: 1.4rem;
     list-style: none;
     margin-top: 3.5rem;
-
-    &>li {
-
+    @media only screen and (max-width: ${screenWidth[3]}) {
+      display: flex;
+      margin-top: 0;
     }
   }
   &>div {
     font-size: 1.2rem;
     color: ${p =>p.c.grey.light[3]};
     text-align: center;
+    @media only screen and (max-width: ${screenWidth[3]}) {
+      display: none;
+    }
   }
 `
 
 const SidebarItem = styled.li.attrs(({theme: {colour:c}}) => ({c}))`
 position: relative;
 ${p => !(p.id === p.len - 1) && css`margin-bottom: .5rem;`}
+@media only screen and (max-width: ${screenWidth[3]}) {
+  margin-bottom: 0;
+  flex: 1;
+}
 /* ${p => (p.id === 0) && css`background-color: ${p.c.primary.default }`} */
 
 &::before {
@@ -87,6 +95,14 @@ ${p => (p.id === 0) ? '&::before,' : ''}
 
     display: flex;
     align-items: center;
+    @media only screen and (max-width: ${screenWidth[3]}) {
+      justify-content: center;
+      padding: 2rem;
+    }
+    @media only screen and (max-width: ${screenWidth[5]}) {
+      flex-direction: column;
+      padding: 1.5rem .5rem;
+    }
   }
 
   &>svg {
@@ -94,6 +110,12 @@ ${p => (p.id === 0) ? '&::before,' : ''}
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+    @media only screen and (max-width: ${screenWidth[5]}) {
+      margin-right: 0;
+      margin-bottom: .5rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 `
